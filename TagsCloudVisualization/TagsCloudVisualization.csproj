@@ -54,7 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CircularCloudLayouter.cs" />
+    <Compile Include="ConvexHullBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spiral.cs" />
+    <Compile Include="TagValidator.cs" />
+    <Compile Include="TagValidatorException.cs" />
     <Compile Include="TestCircularCloudLayouter_Should.cs" />
   </ItemGroup>
   <ItemGroup>
