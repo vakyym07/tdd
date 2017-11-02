@@ -4,7 +4,7 @@ namespace TagsCloudVisualization
 {
     public class CircularCloudLayouter
     {
-        public readonly Spiral spiral;
+        private readonly Spiral spiral;
 
         public CircularCloudLayouter(Point centre, int width, int height)
         {
