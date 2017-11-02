@@ -85,7 +85,6 @@ namespace TagsCloudVisualization
                 yield return new Size(rnd.Next(50, 70), rnd.Next(5, 30));
         }
 
-
         [Test]
         [TestCaseSource(nameof(_putNextRectangleSource))]
         public void PutNextRectangle_Should_PutRectangle_That_IsNotIntersectWithAnyRectangles(List<Size>lastSizes)
