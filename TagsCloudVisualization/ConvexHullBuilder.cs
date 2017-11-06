@@ -33,9 +33,7 @@ namespace TagsCloudVisualization
             var startCorner = hullPoints[0];
             double square = 0;
             for (var i = 2; i < hullPoints.Count; i++)
-            {
                 square += VectorMultiplication(hullPoints[i - 1], startCorner, hullPoints[i]) / 2.0;
-            }
             return square;
         }
 
