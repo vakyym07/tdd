@@ -2,8 +2,9 @@
 using System.Drawing;
 using FluentAssertions;
 using NUnit.Framework;
+using TagsCloudVisualization;
 
-namespace TagsCloudVisualization
+namespace TagCloudVisualizationTests
 {
     [TestFixture]
     internal class SpiralTests_Should

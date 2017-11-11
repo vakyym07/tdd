@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
 using FluentAssertions;
 using NUnit.Framework;
+using TagsCloudVisualization;
 
-namespace TagsCloudVisualization
+namespace TagCloudVisualizationTests
 {
     [TestFixture]
     public class TagValidatorTests_Should
@@ -26,7 +27,7 @@ namespace TagsCloudVisualization
             int locationX, int locationY, int rectangleWidht, int rectangleHeight)
         {
             validator.RectangleIsCorrect(new Rectangle(
-                new Point(locationX, locationY), new Size(rectangleWidht, rectangleHeight))).Should().BeFalse();
+                new Point(locationX, locationY), new Size(rectangleWidht, rectangleHeight))).Should().BeTrue();
         }
 
         [TestCase(0, 0, 100, 100, TestName = "when location rectangle parametrs are correct")]
@@ -36,7 +37,7 @@ namespace TagsCloudVisualization
             validator.RectangleIsCorrect(new Rectangle(
                 new Point(locationX, locationY), new Size(rectangleWidht, rectangleHeight))).Should().BeTrue();
         }
-
+        
         [TestCase(0, 0, TestName = "when both a width and height are equal zero")]
         [TestCase(-1, 0, TestName = "when width is less than zero")]
         [TestCase(0, -1, TestName = "when height is less than zero")]
@@ -44,13 +45,13 @@ namespace TagsCloudVisualization
         [TestCase(10, 700, TestName = "when height is greater than image height")]
         public void SizeIsCorrect_Should_BeFalse(int width, int height)
         {
-            validator.SizeIsCorrect(new Size(width, height));
+            validator.SizeIsCorrect(new Size(width, height)).Should().BeFalse();
         }
 
         [TestCase(50, 60, TestName = "when both a width and height are corect")]
         public void SizeIsCorrect_Should_BeTrue(int width, int height)
         {
-            validator.SizeIsCorrect(new Size(width, height));
+            validator.SizeIsCorrect(new Size(width, height)).Should().BeTrue();
         }
     }
 }

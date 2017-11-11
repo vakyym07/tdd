@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace TagsCloudVisualization
+namespace Draw
 {
     public class Drawer
     {
@@ -15,10 +15,25 @@ namespace TagsCloudVisualization
             graphics = Graphics.FromImage(bitmap);
         }
 
-        public void DrawRectangles(List<Rectangle> rectangles, Color color)
+        public Size GetStringSize(string str, string stringFont, int stringSize)
+        {
+            return Size.Ceiling(graphics.MeasureString(str, new Font(stringFont, stringSize)));
+        }
+
+        public void DrawRectangles(IEnumerable<Rectangle> rectangles, Color color)
         {
             foreach (var rectangle in rectangles)
                 graphics.DrawRectangle(new Pen(color), rectangle);
+        }
+
+        public void DrawRectangle(Rectangle rectangle, Color color)
+        {
+            graphics.DrawRectangle(new Pen(color), rectangle);
+        }
+
+        public void DrawString(string str, Font font, Brush brush, RectangleF layoutRectangle)
+        {
+            graphics.DrawString(str, font, brush, layoutRectangle);
         }
 
         public void DrawPoligon(List<Point> points, Color color)
